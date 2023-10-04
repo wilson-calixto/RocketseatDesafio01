@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './TodoList.css'
-import { Body, Header, Main } from './styles'
+import { Body, CustomBlueTypography, CustomDivider, CustomForm, CustomPurpleTypography, CustomSimpleGrayTypography, CustomSimpleTypography, Header, Main, MainCard, SimpleDivider } from './styles'
 import reactLogo from '../assets/react.svg'
+import clipBoard from '../assets/clipboard.svg'
+import { PlusCircle } from 'phosphor-react'
 
 function TodoList() {
   const [count, setCount] = useState(0)
@@ -11,39 +13,46 @@ function TodoList() {
       <Main>
         <Header>
           <img src={reactLogo} className="logo react" alt="React logo" />
-          <p>to</p><p>do</p>
+          <CustomBlueTypography variant='medium'>to</CustomBlueTypography>
+          <CustomPurpleTypography variant='medium'>do</CustomPurpleTypography>
         </Header>
         <Body>
-          <div>
 
-            <form action="/action_page.php">
+          <MainCard>
+
+            <CustomForm action="/action_page.php">
 
               <input placeholder='Adicione uma nova tarefa' type="text" id="fname" name="fname" />
-              <input type="submit" value="Submit" />
-            </form>
+              <button type="submit" >
+                Criar
+                <PlusCircle size={24} />
+
+              </button>
+            </CustomForm>
+
+            <CustomDivider>
+              <CustomBlueTypography variant='small'>Tarefas criadas {count}</CustomBlueTypography>
+              <CustomPurpleTypography variant='small'>Concluídas {count}</CustomPurpleTypography>
+            </CustomDivider>
+
+            <SimpleDivider>
+              <img src={clipBoard} className="Clip Board" alt="Clipe Board" />
+            </SimpleDivider>
+
+            <CustomSimpleTypography >
+              Você ainda não tem tarefas cadastradas
+            </CustomSimpleTypography>
+            <CustomSimpleGrayTypography >
+              Crie tarefas e organize seus itens a fazer
+            </CustomSimpleGrayTypography>
 
 
-
-
-
-
-            <a href="https://vitejs.dev" target="_blank">
-            </a>
-            <a href="https://react.dev" target="_blank">
-            </a>
-
-
-          </div>
-          <h1>Vite + React</h1>
-          <div className="card">
             <button onClick={() => setCount((count) => count + 1)}>
               count is {count}
             </button>
+          </MainCard>
 
-          </div>
-          <p className="read-the-docs">
-            Click on the Vite and React logos to learn more
-          </p>
+
         </Body>
 
       </Main>
