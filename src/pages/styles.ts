@@ -153,5 +153,30 @@ justify-content: space-between;
 `
 
 
+export const CustomCount = styled.p`
+display: flex;
+padding: 2px 8px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 999px;
+background: var(--Gray-400, #333);
+color: var(--Gray-200, #D9D9D9);
+
+
+`
+
+
+
+export const Tasks = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 10px;
+
+
+`
+
 
 

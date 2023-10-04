@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './TodoList.css'
-import { Body, CustomBlueTypography, CustomDivider, CustomForm, CustomPurpleTypography, CustomSimpleGrayTypography, CustomSimpleTypography, Header, Main, MainCard, SimpleDivider } from './styles'
+import { Body, CustomBlueTypography, CustomCount, CustomDivider, CustomForm, CustomPurpleTypography, CustomSimpleGrayTypography, CustomSimpleTypography, Header, Main, MainCard, SimpleDivider, Tasks } from './styles'
 import reactLogo from '../assets/react.svg'
 import clipBoard from '../assets/clipboard.svg'
 import { PlusCircle } from 'phosphor-react'
@@ -31,8 +31,16 @@ function TodoList() {
             </CustomForm>
 
             <CustomDivider>
-              <CustomBlueTypography variant='small'>Tarefas criadas {count}</CustomBlueTypography>
-              <CustomPurpleTypography variant='small'>Concluídas {count}</CustomPurpleTypography>
+              <Tasks>
+                <CustomBlueTypography variant='small'>Tarefas criadas </CustomBlueTypography>
+                <CustomCount>{count}</CustomCount>
+              </Tasks>
+
+              <Tasks>
+                <CustomPurpleTypography variant='small'>Concluídas</CustomPurpleTypography>
+                <CustomCount>{count}</CustomCount>
+              </Tasks>
+
             </CustomDivider>
 
             <SimpleDivider>
