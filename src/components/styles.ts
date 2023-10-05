@@ -11,8 +11,8 @@ height: 100vh;
 
 `
 
-export const Header = styled.header`
-height: 30vh;
+export const Header2 = styled.header`
+height: 200px;
   flex: 1;
   background: var(--Gray-700, #0D0D0D);
   display: flex;
@@ -20,7 +20,8 @@ height: 30vh;
   justify-content: center;
 
   img{
-    height: 1.375rem;
+    margin-top:5px;
+    height: 2rem;
     width: 2.25rem;
   }
 `
@@ -60,64 +61,12 @@ export const CustomPurpleTypography = styled(CustomBlueTypography)<ITypographyPr
      color: var(--PurpleDark, #5E60CE);
 `
 
-export const Body = styled.body`
-  width: 100vw;
-  height: 70vh;
-  background: var(--Gray-600, #1A1A1A);
-  flex: 1;
-  margin-top: 0rem;
-
-  display: row;
-  align-items: center;
-  /* justify-content: center; */
-  flex-direction:column;
-  overflow: auto;
-  input{
-  display: flex;
-  padding: 16px;
-  align-items: center;
-  gap: 8px;
-  margin-right: 1rem;
-  
-}
-
-
-input:nth-child(1){
- 
-flex: 1 0 0;
-border-radius: 8px;
-border: 1px solid var(--Gray-700, #0D0D0D);
-background: var(--Gray-500, #262626);
-}
-
-button{
-justify-content: center;
-border-radius: 8px;
-background: var(--Blue-Dark, #1E6F9F);
-}
-`
-
 
 export const MainCard = styled.div`
-margin-top: 0rem;
-width: 736px;
-  height: 70vh;
-  background: var(--Gray-600, #1A1A1A);
-  flex: 1;
-  margin-top: 0rem;
-
-  display: row;
-  align-items: center;
-  /* justify-content: center; */
-
-  flex-direction:column;
-  overflow: auto;
-  input{
-  display: flex;
-  padding: 16px;
-  align-items: center;
-  gap: 8px;
-  }
+padding: 0 352px 0 352px;
+  
+  
+ 
 `
 
 export const CustomDivider = styled.div`
@@ -145,10 +94,46 @@ justify-content:center;
 `
 
 
-export const CustomForm = styled.form`
+export const FormWrapper = styled.form`
 
 display: flex;
 justify-content: space-between;
+transform: translateY(-50%);
+input{
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  gap: 8px;
+  margin-right: 1rem;
+  flex: 1 0 0;
+border-radius: 8px;
+border: 1px solid var(--Gray-700, #0D0D0D);
+background: var(--Gray-500, #262626);
+color: var(--Gray-100, #F2F2F2);
+
+}
+
+
+button{
+  color: var(--Gray-100, #F2F2F2);
+  display: flex;
+flex-direction: row;
+align-items: center;
+gap: 8px;
+border-radius: 8px;
+background: var(--Blue-Dark, #1E6F9F);
+
+  
+  border: none;
+  font-size: 0.875rem;
+  font-weight: bold;
+  border-radius: 8px;
+  
+
+  padding: 1rem;
+  cursor: pointer;
+  transition: background .1s;
+}
 
 `
 
@@ -169,7 +154,7 @@ color: var(--Gray-200, #D9D9D9);
 
 
 
-export const Tasks = styled.div`
+export const TasksDiv = styled.div`
 display: flex;
 flex-direction: row;
 align-items: center;
