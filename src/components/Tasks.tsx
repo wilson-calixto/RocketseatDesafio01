@@ -1,17 +1,18 @@
 import { CustomBlueTypography, CustomCount, CustomDivider, CustomPurpleTypography, CustomSimpleGrayTypography, CustomSimpleTypography, SimpleDivider, TasksDiv } from './styles';
 import clipBoard from '../assets/clipboard.svg'
+import { Trash } from 'phosphor-react'
 
 
-interface Task {
-  id: string;
+export interface ITask {
+  id: number;
   checked: boolean;
   text: string;
 }
 
 interface TasksProps {
-  tasks: Task[],
-  checkedTask: (id: string) => void;
-  deleteTask: (id: string) => void;
+  tasks: ITask[],
+  checkedTask: (id: number) => void;
+  deleteTask: (id: number) => void;
 }
 
 export function Tasks({ tasks, checkedTask, deleteTask }: TasksProps) {
@@ -41,11 +42,16 @@ export function Tasks({ tasks, checkedTask, deleteTask }: TasksProps) {
 
 
       {tasks.length > 0 ?
-        tasks.map((item, index) =>
+        tasks.map((item) =>
 
           <div key={item.toString()}>
-            <input type="checkbox" id="vehicle1" value={index} />
-            <label for="vehicle1"> {item}</label><br></br>
+            <input type="checkbox" id={item.text} value={item.id} checked={item.checked} />
+            <label htmlFor={item.text}> {item.text}</label><br></br>
+            <Trash
+              onClick={() => {
+                deleteTask(item.id);
+              }}
+            ></Trash>
           </div>
         )
         :

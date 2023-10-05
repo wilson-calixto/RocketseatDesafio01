@@ -2,28 +2,35 @@ import { useCallback, useState } from 'react'
 import { NewTask } from '../components/NewTask'
 import { Header } from '../components/Header';
 import { MainCard } from '../components/styles';
-import { Tasks } from '../components/Tasks';
+import { ITask, Tasks } from '../components/Tasks';
 
 function TodoList() {
   const [count, setCount] = useState(0)
-  const [taskList, setTaskList] = useState<string[]>([])
+  const [taskList, setTaskList] = useState<ITask[]>([])
 
 
 
 
-  const handleCreateTask = useCallback((newItem: string) => {
-
+  const handleCreateTask = useCallback((text: string) => {
+    const newItem: ITask = { id: taskList.length, text: text, checked: false }
     setTaskList((prev) => {
-      const newFileList: string[] = [
+      const newFileList: ITask[] = [
         ...prev,
         newItem
       ];
+      console.log(newFileList)
+
       return newFileList;
     })
 
-
   }, [taskList, setTaskList]);
 
+
+  const handleDeleteTask = useCallback((id: number) => {
+
+    setTaskList(taskList.filter(item => item.id !== id));
+
+  }, [taskList, setTaskList]);
 
   return (
     <>
@@ -31,7 +38,7 @@ function TodoList() {
 
       <MainCard>
         <NewTask createTask={handleCreateTask} />
-        <Tasks tasks={taskList} checkedTask={console.log} deleteTask={console.log}></Tasks>
+        <Tasks tasks={taskList} checkedTask={console.log} deleteTask={handleDeleteTask}></Tasks>
       </MainCard>
 
     </>
