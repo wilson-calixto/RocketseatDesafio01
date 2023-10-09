@@ -17,7 +17,6 @@ function TodoList() {
         ...prev,
         newItem
       ];
-      console.log(newFileList)
 
       return newFileList;
     })
@@ -45,7 +44,6 @@ function TodoList() {
       }
     });
     setTaskList(updatedTasks);
-    console.log("updatedTasks", updatedTasks)
 
   }
   return (
