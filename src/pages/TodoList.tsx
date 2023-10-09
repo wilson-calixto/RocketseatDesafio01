@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react'
 import { NewTask } from '../components/NewTask'
 import { Header } from '../components/Header';
 import { MainCard } from '../components/styles';
-import { ITask, Tasks } from '../components/Tasks';
+import { ITask, TaskCard } from '../components/TaskCard';
 
 function TodoList() {
   const [count, setCount] = useState(0)
@@ -32,13 +32,29 @@ function TodoList() {
 
   }, [taskList, setTaskList]);
 
+  function handlecheckTask(id: number) {
+
+    const updatedTasks = taskList.map(task => {
+      if (task.id === id) {
+        return {
+          id: task.id,
+          checked: !task.checked,
+          text: task.text
+        }
+      } else {
+        return task;
+      }
+    });
+    setTaskList(updatedTasks);
+
+  }
   return (
     <>
       <Header />
 
       <MainCard>
         <NewTask createTask={handleCreateTask} />
-        <Tasks tasks={taskList} checkedTask={console.log} deleteTask={handleDeleteTask}></Tasks>
+        <TaskCard tasks={taskList} checkedTask={handlecheckTask} deleteTask={handleDeleteTask} />
       </MainCard>
 
     </>

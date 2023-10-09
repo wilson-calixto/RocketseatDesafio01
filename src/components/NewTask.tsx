@@ -9,7 +9,7 @@ interface NewTaskProps {
 export function NewTask({ createTask }: NewTaskProps) {
   const [text, setText] = useState('');
 
-  function handleCreateTask(e: any) {
+  function handleCreateTask(e: Event) {
     e.preventDefault();
     createTask(text);
     setText('');

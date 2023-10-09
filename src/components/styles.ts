@@ -11,7 +11,7 @@ height: 100vh;
 
 `
 
-export const Header2 = styled.header`
+export const CustomHeader = styled.header`
 height: 200px;
   flex: 1;
   background: var(--Gray-700, #0D0D0D);
@@ -76,13 +76,14 @@ justify-content: space-between;
 border-color: white;
 border-width: 10px;
 border-bottom: 10px;
-margin-top: 4rem;
+margin-top: 1rem;
+margin-bottom: 4rem;
 
 
 `
 
 export const SimpleDivider = styled(CustomDivider)`
-/* padding-top: 1.563rem; */
+
 padding-top: 4rem;
 padding-bottom: 1rem;
 margin-top: 1.5rem;
@@ -162,6 +163,29 @@ gap: 10px;
 
 
 `
+interface IImageProps {
+  checked: boolean;
+}
+
+export const TasksDivItem = styled(CustomDivider)<IImageProps>`
+  margin-bottom: 0rem ;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--Gray-400, #333);
+  background: var(--Gray-500, #262626);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+
+  label {
+    color: ${(props) => (props.checked ? '#808080':'#F2F2F2')};
+    text-decoration:  ${(props) => (props.checked ? 'line-through':'unset')}; 
+  }
+
+  svg{
+    cursor: pointer;
+  }
+`
+
+
 
 
 
