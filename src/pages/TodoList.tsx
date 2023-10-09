@@ -5,7 +5,6 @@ import { MainCard } from '../components/styles';
 import { ITask, TaskCard } from '../components/TaskCard';
 
 function TodoList() {
-  const [count, setCount] = useState(0)
   const [taskList, setTaskList] = useState<ITask[]>([])
 
 
