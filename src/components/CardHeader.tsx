@@ -25,7 +25,7 @@ export function CardHeader({ tasks }: CardHeaderProps) {
 
       <TasksDiv>
         <CustomPurpleTypography variant='small'>Concluídas</CustomPurpleTypography>
-        <CustomCount>{tasksCompleted}</CustomCount>
+        <CustomCount>{tasksCompleted + " de "}{createdTasks}</CustomCount>
       </TasksDiv>
 
     </CustomDivider>

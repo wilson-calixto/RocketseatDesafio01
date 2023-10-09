@@ -46,6 +46,7 @@ function TodoList() {
       }
     });
     setTaskList(updatedTasks);
+    console.log("updatedTasks", updatedTasks)
 
   }
   return (

@@ -9,10 +9,13 @@ interface NewTaskProps {
 export function NewTask({ createTask }: NewTaskProps) {
   const [text, setText] = useState('');
 
-  function handleCreateTask(e: Event) {
+  function handleCreateTask(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
-    createTask(text);
-    setText('');
+    if (text.length > 0) {
+      createTask(text);
+      setText('');
+    }
+
   }
 
   return (
@@ -21,7 +24,7 @@ export function NewTask({ createTask }: NewTaskProps) {
         value={text}
         onChange={(event) => setText(event.target.value)}
       />
-      <button onClick={handleCreateTask}>
+      <button onClick={(event) => handleCreateTask(event)}>
         Criar
         <PlusCircle size={24} />
       </button>

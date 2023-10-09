@@ -24,7 +24,6 @@ export function TaskCard({ tasks, checkedTask, deleteTask }: TasksProps) {
       <CardHeader
         tasks={tasks}
       />
-
       {thereIsAnyTask ?
         tasks.map((item) =>
           <Task
@@ -36,8 +35,6 @@ export function TaskCard({ tasks, checkedTask, deleteTask }: TasksProps) {
         :
         <WithoutTasks />
       }
-
-
     </>
   );
 }
